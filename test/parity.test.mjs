@@ -87,6 +87,9 @@ test('banner renders every seed, well-formed and looping', () => {
 		}
 		assert.ok(svg.includes('infinite alternate'), `${at}: looping idle animations`);
 		assert.ok(svg.includes('prefers-reduced-motion'), `${at}: reduced-motion escape`);
+		// Monsters hop rigidly: no animation track may rotate or scale the art.
+		assert.ok(!/@keyframes [a-z]\d+\{to\{transform:(rotate|scale)/.test(svg), `${at}: no deforming or rotating animation`);
+		assert.ok(!svg.includes('translateX(') || march, `${at}: only vertical motion on the monsters`);
 		assert.ok(!svg.includes('NaN') && !svg.includes('undefined') && !svg.includes('Infinity'), `${at}: no bad numbers`);
 		// Only the safe attribute vocabulary — nothing user-controlled reaches markup.
 		assert.ok(!/on\w+=/.test(svg) && !svg.includes('<script'), `${at}: inert svg`);

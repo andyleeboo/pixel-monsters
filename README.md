@@ -4,13 +4,13 @@ Deterministic pixel monsters: a 64-bit seed goes in, a monster comes out — alw
 
 <img alt="an endless chain of animated pixel monsters marching left" src="https://raw.githubusercontent.com/andyleeboo/pixel-monsters/output/monsters.svg" />
 
-Every monster above is fully described by the number under it. The chain walks left on a seamless ~90s loop — 24 monsters pass through the window, each bouncing, breathing, swaying and blinking at its own seed-derived rhythm as it goes.
+Every monster above is fully described by the number under it. The chain walks left on a seamless ~90s loop — 24 monsters pass through the window, each hopping and blinking at its own seed-derived rhythm as it goes.
 
 ## How it works
 
 - **Seeding** — an LCG with Knuth's MMIX constants over UInt64, driven through bit-exact ports of Swift's standard-library draw algorithms (Lemire bounded ints, the ClosedRange Double draw). The draw order is frozen: body type → body color → eye count/type/color/positions → mouth → accessory → pattern → bounce speed → blink interval. `test/fixtures.json` pins the output against value dumps from the compiled Swift reference implementation, down to the exact bit pattern of the animation doubles.
 - **Rendering** — a 16×16 grid: 17 body shapes × 30 colors, 10 eye types (1–3 eyes) × 15 colors, 11 mouths, 23 accessories. The renderer centres each monster's *occupied bounding box* (not the grid — different bodies occupy wildly different sub-rects) and normalises optical size on its longer side.
-- **Animation** — the reference kit's idle motion as looping CSS inside the SVG: bounce with counter-squish at the seed's own speed, breathing at 3×, sway/tilt at 4×/2.5×, premium accessories floating on their own layer, and a blink every `blinkInterval` seconds where the eyes take the body color for 150ms — exactly what the native renderer does. Honors `prefers-reduced-motion`.
+- **Animation** — looping CSS inside the SVG, deliberately rigid: each monster hops straight up and down at its own seed-derived `bounceSpeed`, blinks every `blinkInterval` seconds (eyes take the body color for 150ms, as in the native renderer), and premium accessories float on their own layer. No scaling, no rotation — the art is never stretched or wiggled. Honors `prefers-reduced-motion`.
 - **The march** — the whole strip translates left at a constant 28px/s and is laid out twice, one strip-width apart, so the wrap is seamless: the moment the first copy has fully scrolled out, the second copy stands exactly where the first began, in identical animation phase. The viewport shows 8 slots; the other 16 monsters keep entering from the right.
 - **Fresh casts** — a scheduled workflow rolls new random seeds four times a day, runs the parity tests, and force-pushes the result as the single commit on the [`output`](../../tree/output) branch.
 

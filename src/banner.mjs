@@ -8,35 +8,35 @@
  * never reach the screen, and we skip emitting the dead layer instead of
  * copying it. Rendered output is identical.
  *
- * The idle animation is the reference kit's, expressed as looping CSS
- * animations (autoreversing SwiftUI curves map to `infinite alternate`):
+ * The motion is a deliberate subset of the reference kit's idle set,
+ * expressed as looping CSS (autoreversing SwiftUI curves map to `infinite
+ * alternate`). The kit also squishes, breathes, sways and tilts; every
+ * deforming or rotating track is intentionally dropped here — the monsters
+ * hop rigidly, they are never stretched or wiggled:
  *
- *   bounce   translateY −4% of the art's longer side, cubic-bezier(.4,0,.6,1),
- *            duration = the seed's own bounceSpeed
- *   squish   scaleY 0.92 in bounce phase, cubic-bezier(.6,0,.4,1)
- *   breathe  scale 1.02, ease-in-out, 3× bounceSpeed
- *   sway     rotate ±deg + translateX 1%/deg, cubic-bezier(.25,.1,.25,1), 4×
- *   tilt     rotate ±deg, ease-in-out, 2.5× bounceSpeed
+ *   bounce   translateY, cubic-bezier(.4,0,.6,1), duration = the seed's own
+ *            bounceSpeed
  *   float    premium accessory layer translateY −3%, ease-in-out, 2s
  *   blink    eye fill → body fill for 0.15s (0.1s fades) every blinkInterval
  *
- * Sway/tilt target degrees and phase offsets are presentation-level
- * randomness in the reference (drawn outside the seeded generator), so here
- * they come from a SEPARATE offset-seed rng — the visual stream that defines
- * the monster is never extended.
+ * Phase offsets are presentation-level randomness (the reference draws them
+ * outside the seeded generator), so here they come from a SEPARATE
+ * offset-seed rng — the visual stream that defines the monster is never
+ * extended.
  */
 
 import { ACCESSORY_DEFS, BODY_PIXELS, EYE_PIXELS, MOUTH_PIXELS, mouthY } from './data.mjs';
 import { generateMonster } from './generator.mjs';
-import {
-	bounds,
-	BOUNCE_FRACTION,
-	BREATHING_SCALE,
-	FLOAT_FRACTION,
-	SWAY_FRACTION,
-	TILT_DEGREES
-} from './layout.mjs';
+import { bounds, FLOAT_FRACTION } from './layout.mjs';
 import { SeededRng } from './rng.mjs';
+
+/**
+ * Hop height as a fraction of the art's longer side. The kit's in-place idle
+ * uses 0.04, buried under its sway/squish tracks; with those dropped the hop
+ * alone carries the life, so it gets a little more travel. Still well inside
+ * the slot's safe-area margin.
+ */
+const HOP_FRACTION = 0.06;
 
 /** SwiftUI fixed colors resolve to the iOS system palette. */
 const SWIFTUI_PINK = '#FF2D55';
@@ -50,7 +50,6 @@ const px = (v) => {
 	return Object.is(r, -0) ? '0' : String(r);
 };
 const sec = (v) => String(Math.round(v * 1000) / 1000);
-const deg = (v) => String(Math.round(v * 100) / 100);
 const pct = (v) => String(Math.round(v * 10000) / 100);
 
 function rect(x, y, w, fill, opacity) {
@@ -177,7 +176,6 @@ export function renderBanner(seeds, options = {}) {
 	const stripW = seeds.length * stride;
 
 	let css =
-		'.piv{transform-box:fill-box;transform-origin:center}' +
 		'text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px}' +
 		'@media (prefers-reduced-motion:reduce){*{animation:none !important}}';
 	let defs = '';
@@ -193,10 +191,8 @@ export function renderBanner(seeds, options = {}) {
 		const unit = Math.max(box.width, box.height) * cell; // motion amplitude base
 
 		// Presentation-level randomness on an offset-seed rng (never the
-		// generator's stream): sway/tilt targets and the parade phase offset.
+		// generator's stream): the hop and blink phase offsets.
 		const prng = new SeededRng(Number(BigInt.asUintN(50, BigInt(seed) * 6364136223846793005n + 99n)));
-		const swayDeg = prng.doubleClosed(-TILT_DEGREES, TILT_DEGREES);
-		const tiltDeg = prng.doubleClosed(-TILT_DEGREES, TILT_DEGREES);
 		const phase = prng.doubleClosed(0, 4);
 		const blinkPhase = prng.doubleClosed(0, config.blinkInterval);
 
@@ -209,21 +205,11 @@ export function renderBanner(seeds, options = {}) {
 		const p1 = Math.max(0, 1 - (2 * f + hold) - 0.02);
 
 		defs +=
-			`@keyframes b${i}{to{transform:translateY(${px(-unit * BOUNCE_FRACTION)}px)}}` +
-			`@keyframes q${i}{to{transform:scale(1,0.92)}}` +
-			`@keyframes r${i}{to{transform:scale(${BREATHING_SCALE})}}` +
-			`@keyframes s${i}{to{transform:rotate(${deg(swayDeg)}deg)}}` +
-			`@keyframes x${i}{to{transform:translateX(${px(swayDeg * unit * SWAY_FRACTION)}px)}}` +
-			`@keyframes t${i}{to{transform:rotate(${deg(tiltDeg)}deg)}}` +
+			`@keyframes b${i}{to{transform:translateY(${px(-unit * HOP_FRACTION)}px)}}` +
 			`@keyframes k${i}{0%,${pct(p1)}%{fill:${config.eye.color}}${pct(p1 + f)}%,${pct(p1 + f + hold)}%{fill:${config.bodyColor}}${pct(p1 + 2 * f + hold)}%,100%{fill:${config.eye.color}}}`;
 
 		css +=
 			`.b${i}{animation:b${i} ${sec(b)}s cubic-bezier(.4,0,.6,1) -${sec(phase)}s infinite alternate}` +
-			`.q${i}{animation:q${i} ${sec(b)}s cubic-bezier(.6,0,.4,1) -${sec(phase)}s infinite alternate}` +
-			`.r${i}{animation:r${i} ${sec(b * 3)}s ease-in-out -${sec(phase)}s infinite alternate}` +
-			`.s${i}{animation:s${i} ${sec(b * 4)}s cubic-bezier(.25,.1,.25,1) -${sec(phase)}s infinite alternate}` +
-			`.x${i}{animation:x${i} ${sec(b * 4)}s cubic-bezier(.25,.1,.25,1) -${sec(phase)}s infinite alternate}` +
-			`.t${i}{animation:t${i} ${sec(b * 2.5)}s ease-in-out -${sec(phase)}s infinite alternate}` +
 			`.e${i}{animation:k${i} ${sec(blink)}s linear -${sec(blinkPhase)}s infinite}`;
 
 		const art = `transform="scale(${px(cell)}) translate(${px(-box.centerX)} ${px(-box.centerY)})"`;
@@ -236,13 +222,13 @@ export function renderBanner(seeds, options = {}) {
 		}
 
 		// One monster, centred on its local origin — placed per copy below.
+		// A single rigid translateY carries the whole figure: no scale, no
+		// rotation, nothing that would stretch or wiggle the art.
 		let inner =
-			`<g class="b${i}"><g class="x${i}">` +
-			`<g class="piv s${i}"><g class="piv t${i}"><g class="piv r${i}"><g class="piv q${i}">` +
+			`<g class="b${i}">` +
 			`<g ${art} shape-rendering="crispEdges">${monsterArt(config, i)}</g>` +
-			`</g></g></g></g>` +
 			premiumLayer +
-			`</g></g>`;
+			`</g>`;
 		if (labels) {
 			inner += `<text x="0" y="${px(slot / 2 + 15)}" text-anchor="middle" fill="${labelColor}">#${seed}</text>`;
 		}
