@@ -142,8 +142,20 @@ function premiumArt(config) {
 /**
  * Render seeds into one looping, self-contained SVG banner.
  *
+ * Two modes:
+ *   march (default) — the chain walks leftward forever. The full strip of
+ *     monsters scrolls at a constant speed and is laid out twice, one strip
+ *     width apart, so the loop wraps seamlessly: when the first copy has
+ *     scrolled fully out, the second copy is exactly where the first began.
+ *     Both copies share every animation class, so each monster's idle phase
+ *     is identical in the two copies and the seam is invisible. The viewport
+ *     shows `visible` slots; fresh monsters keep entering from the right.
+ *   static — the old fixed row (every seed in its own slot, no travel).
+ *
  * @param {number[]} seeds
- * @param {{slot?: number, gap?: number, pad?: number, labels?: boolean, labelColor?: string}} [options]
+ * @param {{slot?: number, gap?: number, pad?: number, labels?: boolean,
+ *          labelColor?: string, march?: boolean, speed?: number,
+ *          visible?: number}} [options]
  * @returns {string}
  */
 export function renderBanner(seeds, options = {}) {
@@ -152,17 +164,24 @@ export function renderBanner(seeds, options = {}) {
 	const pad = options.pad ?? 12;
 	const labels = options.labels ?? true;
 	const labelColor = options.labelColor ?? '#8b949e';
+	const march = options.march ?? true;
+	const speed = options.speed ?? 28; // leftward, px per second
+	const visible = Math.min(options.visible ?? 8, seeds.length);
 	const labelBand = labels ? 22 : 0;
 
-	const width = pad * 2 + seeds.length * slot + Math.max(0, seeds.length - 1) * gap;
+	const stride = slot + gap;
+	const cols = march ? visible : seeds.length;
+	const width = pad * 2 + cols * slot + Math.max(0, cols - 1) * gap;
 	const height = pad * 2 + slot + labelBand;
+	// Periodic strip width — the marquee's wrap distance and travel per loop.
+	const stripW = seeds.length * stride;
 
 	let css =
 		'.piv{transform-box:fill-box;transform-origin:center}' +
 		'text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px}' +
 		'@media (prefers-reduced-motion:reduce){*{animation:none !important}}';
 	let defs = '';
-	let content = '';
+	const monsters = [];
 
 	seeds.forEach((seed, i) => {
 		const config = generateMonster(seed);
@@ -172,8 +191,6 @@ export function renderBanner(seeds, options = {}) {
 		// a tall body and a squat one span the same fraction of the slot.
 		const cell = (slot * SAFE_FRACTION) / box.extent;
 		const unit = Math.max(box.width, box.height) * cell; // motion amplitude base
-		const cx = pad + i * (slot + gap) + slot / 2;
-		const cy = pad + slot / 2;
 
 		// Presentation-level randomness on an offset-seed rng (never the
 		// generator's stream): sway/tilt targets and the parade phase offset.
@@ -218,22 +235,40 @@ export function renderBanner(seeds, options = {}) {
 			premiumLayer = `<g class="f${i}"><g ${art} shape-rendering="crispEdges">${premium}</g></g>`;
 		}
 
-		content +=
-			`<g transform="translate(${px(cx)} ${px(cy)})">` +
+		// One monster, centred on its local origin — placed per copy below.
+		let inner =
 			`<g class="b${i}"><g class="x${i}">` +
 			`<g class="piv s${i}"><g class="piv t${i}"><g class="piv r${i}"><g class="piv q${i}">` +
 			`<g ${art} shape-rendering="crispEdges">${monsterArt(config, i)}</g>` +
 			`</g></g></g></g>` +
 			premiumLayer +
-			`</g></g>` +
-			`</g>`;
-
+			`</g></g>`;
 		if (labels) {
-			content += `<text x="${px(cx)}" y="${px(pad + slot + 15)}" text-anchor="middle" fill="${labelColor}">#${seed}</text>`;
+			inner += `<text x="0" y="${px(slot / 2 + 15)}" text-anchor="middle" fill="${labelColor}">#${seed}</text>`;
 		}
+		monsters.push(inner);
 	});
 
-	const title = `${seeds.length} pixel monsters — seeds ${seeds.join(', ')}`;
+	const cy = pad + slot / 2;
+	const place = (i, offset) =>
+		`<g transform="translate(${px(pad + i * stride + slot / 2 + offset)} ${px(cy)})">${monsters[i]}</g>`;
+
+	let content = '';
+	if (march) {
+		// Travel one strip width per loop at a constant speed, then wrap.
+		const dur = stripW / speed;
+		defs += `@keyframes march{to{transform:translateX(${px(-stripW)}px)}}`;
+		css += `.chain{animation:march ${sec(dur)}s linear infinite}`;
+		let strip = '';
+		for (let i = 0; i < seeds.length; i++) strip += place(i, 0) + place(i, stripW);
+		content = `<g class="chain">${strip}</g>`;
+	} else {
+		for (let i = 0; i < seeds.length; i++) content += place(i, 0);
+	}
+
+	const title = march
+		? `${seeds.length} pixel monsters marching by — seeds ${seeds.join(', ')}`
+		: `${seeds.length} pixel monsters — seeds ${seeds.join(', ')}`;
 	return (
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${title}">` +
 		`<title>${title}</title>` +

@@ -75,19 +75,51 @@ test('occupied bounds stay inside the drawable grid band', () => {
 
 test('banner renders every seed, well-formed and looping', () => {
 	const seeds = [0, 1, 2, 54710, 831042, 999999, 424242, 77];
-	const svg = renderBanner(seeds, { slot: 96 });
-	assert.ok(svg.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'), 'svg root');
-	assert.ok(svg.endsWith('</svg>'), 'closed root');
-	for (const seed of seeds) assert.ok(svg.includes(`#${seed}<`), `label for seed ${seed}`);
-	for (let i = 0; i < seeds.length; i++) {
-		assert.ok(svg.includes(`@keyframes b${i}{`), `bounce keyframes for slot ${i}`);
-		assert.ok(svg.includes(`class="e${i}"`), `blinking eye group for slot ${i}`);
+	for (const march of [true, false]) {
+		const svg = renderBanner(seeds, { slot: 96, march });
+		const at = march ? 'march' : 'static';
+		assert.ok(svg.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'), `${at}: svg root`);
+		assert.ok(svg.endsWith('</svg>'), `${at}: closed root`);
+		for (const seed of seeds) assert.ok(svg.includes(`#${seed}<`), `${at}: label for seed ${seed}`);
+		for (let i = 0; i < seeds.length; i++) {
+			assert.ok(svg.includes(`@keyframes b${i}{`), `${at}: bounce keyframes for slot ${i}`);
+			assert.ok(svg.includes(`class="e${i}"`), `${at}: blinking eye group for slot ${i}`);
+		}
+		assert.ok(svg.includes('infinite alternate'), `${at}: looping idle animations`);
+		assert.ok(svg.includes('prefers-reduced-motion'), `${at}: reduced-motion escape`);
+		assert.ok(!svg.includes('NaN') && !svg.includes('undefined') && !svg.includes('Infinity'), `${at}: no bad numbers`);
+		// Only the safe attribute vocabulary — nothing user-controlled reaches markup.
+		assert.ok(!/on\w+=/.test(svg) && !svg.includes('<script'), `${at}: inert svg`);
 	}
-	assert.ok(svg.includes('infinite alternate'), 'looping animations');
-	assert.ok(svg.includes('prefers-reduced-motion'), 'reduced-motion escape');
-	assert.ok(!svg.includes('NaN') && !svg.includes('undefined') && !svg.includes('Infinity'), 'no bad numbers');
-	// Only the safe attribute vocabulary — nothing user-controlled reaches markup.
-	assert.ok(!/on\w+=/.test(svg) && !svg.includes('<script'), 'inert svg');
+});
+
+test('march mode scrolls left and wraps seamlessly', () => {
+	const seeds = Array.from({ length: 12 }, (_, i) => i * 1000 + 7);
+	const slot = 96;
+	const gap = 10;
+	const visible = 8;
+	const svg = renderBanner(seeds, { slot, gap, visible, speed: 28 });
+
+	// The wrap distance is one full strip; travel is leftward by exactly that.
+	const stripW = seeds.length * (slot + gap);
+	assert.ok(svg.includes(`@keyframes march{to{transform:translateX(-${stripW}px)}}`), 'march travel = strip width');
+	assert.ok(/\.chain\{animation:march [\d.]+s linear infinite\}/.test(svg), 'constant-speed loop');
+
+	// Every monster is laid out twice, one strip width apart, for the seamless seam.
+	for (const seed of seeds) {
+		assert.equal(svg.split(`#${seed}<`).length - 1, 2, `seed ${seed} placed in both strip copies`);
+	}
+
+	// The viewport is the visible window, not the strip.
+	const expectedWidth = 12 * 2 + visible * slot + (visible - 1) * gap;
+	assert.ok(svg.includes(`viewBox="0 0 ${expectedWidth} `), 'viewport clips to the visible window');
+
+	// Static mode places each monster once and has no marquee.
+	const stat = renderBanner(seeds, { slot, gap, march: false });
+	assert.ok(!stat.includes('@keyframes march'), 'static: no marquee');
+	for (const seed of seeds) {
+		assert.equal(stat.split(`#${seed}<`).length - 1, 1, `static: seed ${seed} placed once`);
+	}
 });
 
 test('the same seed list renders byte-identical banners', () => {
