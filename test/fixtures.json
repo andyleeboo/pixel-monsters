@@ -1,0 +1,1531 @@
+{
+ "note": "Ground truth dumped from the compiled Swift reference kit on 2026-08-05. bounceSpeedBits/blinkIntervalBits are Double.bitPattern decimal strings. Never edit by hand; regenerate from the reference kit if its generator ever changes (it is frozen).",
+ "configs": [
+  {
+   "seed": 0,
+   "bodyType": "wide",
+   "bodyColor": "#B4E7CE",
+   "eye": {
+    "count": 1,
+    "type": "pixel",
+    "color": "#FF69B4",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "teeth",
+   "accessories": [],
+   "pattern": {
+    "color": "#FFFFFF",
+    "type": "checkered"
+   },
+   "bounceSpeedBits": "4607396157626977036",
+   "blinkIntervalBits": "4616350656214587194"
+  },
+  {
+   "seed": 1,
+   "bodyType": "wide",
+   "bodyColor": "#B4E7CE",
+   "eye": {
+    "count": 1,
+    "type": "pixel",
+    "color": "#FF69B4",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "teeth",
+   "accessories": [],
+   "pattern": {
+    "color": "#FFFFFF",
+    "type": "checkered"
+   },
+   "bounceSpeedBits": "4607396157626977036",
+   "blinkIntervalBits": "4616350656214587194"
+  },
+  {
+   "seed": 2,
+   "bodyType": "hourglass",
+   "bodyColor": "#FF7F50",
+   "eye": {
+    "count": 3,
+    "type": "pixel",
+    "color": "#E74C3C",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "smile",
+   "accessories": [],
+   "pattern": {
+    "color": "#FF69B4",
+    "type": "checkered"
+   },
+   "bounceSpeedBits": "4607289574069855474",
+   "blinkIntervalBits": "4616273957226049882"
+  },
+  {
+   "seed": 3,
+   "bodyType": "square",
+   "bodyColor": "#FD79A8",
+   "eye": {
+    "count": 3,
+    "type": "pixel",
+    "color": "#C0392B",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "teeth",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607278340658767381",
+   "blinkIntervalBits": "4618309426719165088"
+  },
+  {
+   "seed": 4,
+   "bodyType": "wide",
+   "bodyColor": "#98FB98",
+   "eye": {
+    "count": 3,
+    "type": "pixel",
+    "color": "#000000",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "surprised",
+   "accessories": [
+    {
+     "isPremium": true,
+     "position": "topCenter",
+     "type": "pizza"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4604028936127934073",
+   "blinkIntervalBits": "4612113418486453386"
+  },
+  {
+   "seed": 5,
+   "bodyType": "hourglass",
+   "bodyColor": "#FECA57",
+   "eye": {
+    "count": 3,
+    "type": "pixel",
+    "color": "#1ABC9C",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "whistle",
+   "accessories": [],
+   "pattern": {
+    "color": "#FFFFFF",
+    "type": "stripes"
+   },
+   "bounceSpeedBits": "4604757763806915978",
+   "blinkIntervalBits": "4617197783958857024"
+  },
+  {
+   "seed": 6,
+   "bodyType": "blob",
+   "bodyColor": "#95E1D3",
+   "eye": {
+    "count": 3,
+    "type": "sleepy",
+    "color": "#00FF00",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "surprised",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607968978282621328",
+   "blinkIntervalBits": "4614460968173567454"
+  },
+  {
+   "seed": 7,
+   "bodyType": "mushroom",
+   "bodyColor": "#6495ED",
+   "eye": {
+    "count": 3,
+    "type": "sleepy",
+    "color": "#E74C3C",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "whistle",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607298470898431878",
+   "blinkIntervalBits": "4615473945521813011"
+  },
+  {
+   "seed": 8,
+   "bodyType": "pentagon",
+   "bodyColor": "#FDCB6E",
+   "eye": {
+    "count": 3,
+    "type": "sleepy",
+    "color": "#FFFFFF",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "bubble"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4606460081763723410",
+   "blinkIntervalBits": "4617224133848458152"
+  },
+  {
+   "seed": 9,
+   "bodyType": "egg",
+   "bodyColor": "#DEB887",
+   "eye": {
+    "count": 3,
+    "type": "sleepy",
+    "color": "#4A4A4A",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "frown",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604732493460088546",
+   "blinkIntervalBits": "4616844759136531263"
+  },
+  {
+   "seed": 10,
+   "bodyType": "mushroom",
+   "bodyColor": "#FF9FF3",
+   "eye": {
+    "count": 2,
+    "type": "sleepy",
+    "color": "#F39C12",
+    "positions": [
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "whistle",
+   "accessories": [
+    {
+     "isPremium": true,
+     "position": "topCenter",
+     "type": "lightningBolt"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4603962367620849771",
+   "blinkIntervalBits": "4615280572802485460"
+  },
+  {
+   "seed": 11,
+   "bodyType": "pentagon",
+   "bodyColor": "#C7CEEA",
+   "eye": {
+    "count": 2,
+    "type": "circle",
+    "color": "#FFD700",
+    "positions": [
+     [
+      6,
+      5
+     ],
+     [
+      10,
+      5
+     ]
+    ]
+   },
+   "mouthType": "open",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607732929895291410",
+   "blinkIntervalBits": "4613860373754195301"
+  },
+  {
+   "seed": 12,
+   "bodyType": "egg",
+   "bodyColor": "#DC143C",
+   "eye": {
+    "count": 2,
+    "type": "circle",
+    "color": "#3498DB",
+    "positions": [
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4608036823099765078",
+   "blinkIntervalBits": "4615396681543121431"
+  },
+  {
+   "seed": 13,
+   "bodyType": "pear",
+   "bodyColor": "#A8E6CF",
+   "eye": {
+    "count": 2,
+    "type": "circle",
+    "color": "#FF69B4",
+    "positions": [
+     [
+      6,
+      5
+     ],
+     [
+      10,
+      5
+     ]
+    ]
+   },
+   "mouthType": "zigzag",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "horn"
+    }
+   ],
+   "pattern": {
+    "color": "#C0C0C0",
+    "type": "zigzag"
+   },
+   "bounceSpeedBits": "4607958749736723369",
+   "blinkIntervalBits": "4613578508798101463"
+  },
+  {
+   "seed": 14,
+   "bodyType": "octagon",
+   "bodyColor": "#F4A460",
+   "eye": {
+    "count": 2,
+    "type": "circle",
+    "color": "#2C3E50",
+    "positions": [
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "frown",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604702480664562820",
+   "blinkIntervalBits": "4617329457587866046"
+  },
+  {
+   "seed": 15,
+   "bodyType": "tall",
+   "bodyColor": "#54A0FF",
+   "eye": {
+    "count": 2,
+    "type": "circle",
+    "color": "#27AE60",
+    "positions": [
+     [
+      7,
+      5
+     ],
+     [
+      9,
+      5
+     ]
+    ]
+   },
+   "mouthType": "surprised",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4605310267073510154",
+   "blinkIntervalBits": "4618097611482329110"
+  },
+  {
+   "seed": 16,
+   "bodyType": "hexagon",
+   "bodyColor": "#FFDAB9",
+   "eye": {
+    "count": 2,
+    "type": "circle",
+    "color": "#FF1493",
+    "positions": [
+     [
+      7,
+      7
+     ],
+     [
+      9,
+      7
+     ]
+    ]
+   },
+   "mouthType": "dot",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "crown"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4604088756108139243",
+   "blinkIntervalBits": "4617582748894236214"
+  },
+  {
+   "seed": 17,
+   "bodyType": "cross",
+   "bodyColor": "#FF6B6B",
+   "eye": {
+    "count": 1,
+    "type": "dot",
+    "color": "#9B59B6",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "teeth",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "star"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4604813014418746534",
+   "blinkIntervalBits": "4616393068902142995"
+  },
+  {
+   "seed": 18,
+   "bodyType": "tall",
+   "bodyColor": "#FFD3B6",
+   "eye": {
+    "count": 1,
+    "type": "dot",
+    "color": "#FF69B4",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "teeth",
+   "accessories": [],
+   "pattern": {
+    "color": "#FF69B4",
+    "type": "checkered"
+   },
+   "bounceSpeedBits": "4607133626300352156",
+   "blinkIntervalBits": "4615607329021937217"
+  },
+  {
+   "seed": 19,
+   "bodyType": "hexagon",
+   "bodyColor": "#D8BFD8",
+   "eye": {
+    "count": 1,
+    "type": "dot",
+    "color": "#E74C3C",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "whistle",
+   "accessories": [
+    {
+     "isPremium": true,
+     "position": "topCenter",
+     "type": "burger"
+    }
+   ],
+   "pattern": {
+    "color": "#C0C0C0",
+    "type": "dots"
+   },
+   "bounceSpeedBits": "4606854110128206276",
+   "blinkIntervalBits": "4611816333944587321"
+  },
+  {
+   "seed": 20,
+   "bodyType": "cross",
+   "bodyColor": "#48DBFB",
+   "eye": {
+    "count": 1,
+    "type": "dot",
+    "color": "#C0392B",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "frown",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4606938024549055268",
+   "blinkIntervalBits": "4616043936041276933"
+  },
+  {
+   "seed": 21,
+   "bodyType": "diamond",
+   "bodyColor": "#E0BBE4",
+   "eye": {
+    "count": 1,
+    "type": "dot",
+    "color": "#000000",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "frown",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "horn"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4604853274898075527",
+   "blinkIntervalBits": "4618419023598634110"
+  },
+  {
+   "seed": 22,
+   "bodyType": "star",
+   "bodyColor": "#45B7D1",
+   "eye": {
+    "count": 1,
+    "type": "spiral",
+    "color": "#1ABC9C",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "tongue",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4605391660163309966",
+   "blinkIntervalBits": "4618385352061423328"
+  },
+  {
+   "seed": 23,
+   "bodyType": "round",
+   "bodyColor": "#FF8B94",
+   "eye": {
+    "count": 1,
+    "type": "spiral",
+    "color": "#00FF00",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "open",
+   "accessories": [
+    {
+     "isPremium": true,
+     "position": "topCenter",
+     "type": "pixelCoin"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4607378991857089865",
+   "blinkIntervalBits": "4613667184584259940"
+  },
+  {
+   "seed": 24,
+   "bodyType": "triangle",
+   "bodyColor": "#00CED1",
+   "eye": {
+    "count": 1,
+    "type": "spiral",
+    "color": "#3498DB",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "open",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4603845295777564666",
+   "blinkIntervalBits": "4616111036840158589"
+  },
+  {
+   "seed": 25,
+   "bodyType": "star",
+   "bodyColor": "#A29BFE",
+   "eye": {
+    "count": 3,
+    "type": "spiral",
+    "color": "#FFFFFF",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "surprised",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "star"
+    }
+   ],
+   "pattern": {
+    "color": "#C0C0C0",
+    "type": "zigzag"
+   },
+   "bounceSpeedBits": "4605874912567177802",
+   "blinkIntervalBits": "4616598924350312208"
+  },
+  {
+   "seed": 26,
+   "bodyType": "round",
+   "bodyColor": "#98FB98",
+   "eye": {
+    "count": 3,
+    "type": "spiral",
+    "color": "#4A4A4A",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "whistle",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4608069629480943812",
+   "blinkIntervalBits": "4616447867341877506"
+  },
+  {
+   "seed": 27,
+   "bodyType": "triangle",
+   "bodyColor": "#96CEB4",
+   "eye": {
+    "count": 3,
+    "type": "spiral",
+    "color": "#F39C12",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [],
+   "pattern": {
+    "color": "#C0C0C0",
+    "type": "dots"
+   },
+   "bounceSpeedBits": "4608003243381112256",
+   "blinkIntervalBits": "4617967713829615405"
+  },
+  {
+   "seed": 28,
+   "bodyType": "heart",
+   "bodyColor": "#B4E7CE",
+   "eye": {
+    "count": 3,
+    "type": "diamond",
+    "color": "#FFD700",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "whistle",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4606274810625112416",
+   "blinkIntervalBits": "4617460844690123063"
+  },
+  {
+   "seed": 29,
+   "bodyType": "square",
+   "bodyColor": "#FF7F50",
+   "eye": {
+    "count": 3,
+    "type": "diamond",
+    "color": "#3498DB",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604933795856733514",
+   "blinkIntervalBits": "4617967333364245842"
+  },
+  {
+   "seed": 30,
+   "bodyType": "wide",
+   "bodyColor": "#FD79A8",
+   "eye": {
+    "count": 3,
+    "type": "diamond",
+    "color": "#FF69B4",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "frown",
+   "accessories": [],
+   "pattern": {
+    "color": "#FFFFFF",
+    "type": "spots"
+   },
+   "bounceSpeedBits": "4606185102429429542",
+   "blinkIntervalBits": "4612586263815345702"
+  },
+  {
+   "seed": 31,
+   "bodyType": "hourglass",
+   "bodyColor": "#F0E68C",
+   "eye": {
+    "count": 3,
+    "type": "diamond",
+    "color": "#2C3E50",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "wavy",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607419252336418859",
+   "blinkIntervalBits": "4612763804115483405"
+  },
+  {
+   "seed": 32,
+   "bodyType": "blob",
+   "bodyColor": "#FECA57",
+   "eye": {
+    "count": 3,
+    "type": "diamond",
+    "color": "#27AE60",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "frown",
+   "accessories": [
+    {
+     "isPremium": true,
+     "position": "topCenter",
+     "type": "pizza"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4604833996919925646",
+   "blinkIntervalBits": "4617645428806089724"
+  },
+  {
+   "seed": 33,
+   "bodyType": "wide",
+   "bodyColor": "#95E1D3",
+   "eye": {
+    "count": 2,
+    "type": "heart",
+    "color": "#FF1493",
+    "positions": [
+     [
+      7,
+      7
+     ],
+     [
+      9,
+      7
+     ]
+    ]
+   },
+   "mouthType": "wavy",
+   "accessories": [],
+   "pattern": {
+    "color": "#FF69B4",
+    "type": "stripes"
+   },
+   "bounceSpeedBits": "4605228278410264260",
+   "blinkIntervalBits": "4614827992596731071"
+  },
+  {
+   "seed": 34,
+   "bodyType": "hourglass",
+   "bodyColor": "#6495ED",
+   "eye": {
+    "count": 2,
+    "type": "heart",
+    "color": "#9B59B6",
+    "positions": [
+     [
+      7,
+      5
+     ],
+     [
+      9,
+      5
+     ]
+    ]
+   },
+   "mouthType": "teeth",
+   "accessories": [],
+   "pattern": {
+    "color": "#FFFFFF",
+    "type": "zigzag"
+   },
+   "bounceSpeedBits": "4603796369252438919",
+   "blinkIntervalBits": "4616498440354516426"
+  },
+  {
+   "seed": 35,
+   "bodyType": "blob",
+   "bodyColor": "#6C5CE7",
+   "eye": {
+    "count": 2,
+    "type": "heart",
+    "color": "#FF69B4",
+    "positions": [
+     [
+      7,
+      7
+     ],
+     [
+      9,
+      7
+     ]
+    ]
+   },
+   "mouthType": "tongue",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4606657356146767649",
+   "blinkIntervalBits": "4614702963669458445"
+  },
+  {
+   "seed": 36,
+   "bodyType": "mushroom",
+   "bodyColor": "#DEB887",
+   "eye": {
+    "count": 2,
+    "type": "heart",
+    "color": "#E74C3C",
+    "positions": [
+     [
+      7,
+      5
+     ],
+     [
+      9,
+      5
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607223780677866196",
+   "blinkIntervalBits": "4616214444756571488"
+  },
+  {
+   "seed": 37,
+   "bodyType": "pentagon",
+   "bodyColor": "#FF9FF3",
+   "eye": {
+    "count": 2,
+    "type": "heart",
+    "color": "#C0392B",
+    "positions": [
+     [
+      7,
+      6
+     ],
+     [
+      9,
+      6
+     ]
+    ]
+   },
+   "mouthType": "zigzag",
+   "accessories": [],
+   "pattern": {
+    "color": "#C0C0C0",
+    "type": "dots"
+   },
+   "bounceSpeedBits": "4604904961331807489",
+   "blinkIntervalBits": "4613737873572163599"
+  },
+  {
+   "seed": 38,
+   "bodyType": "egg",
+   "bodyColor": "#C7CEEA",
+   "eye": {
+    "count": 2,
+    "type": "heart",
+    "color": "#000000",
+    "positions": [
+     [
+      7,
+      5
+     ],
+     [
+      9,
+      5
+     ]
+    ]
+   },
+   "mouthType": "frown",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "hat"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4607668739531723888",
+   "blinkIntervalBits": "4618352678764994596"
+  },
+  {
+   "seed": 39,
+   "bodyType": "pear",
+   "bodyColor": "#FF6B6B",
+   "eye": {
+    "count": 2,
+    "type": "star",
+    "color": "#1ABC9C",
+    "positions": [
+     [
+      7,
+      6
+     ],
+     [
+      9,
+      6
+     ]
+    ]
+   },
+   "mouthType": "smile",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4603684182229712390",
+   "blinkIntervalBits": "4611840995570421971"
+  },
+  {
+   "seed": 40,
+   "bodyType": "pentagon",
+   "bodyColor": "#A8E6CF",
+   "eye": {
+    "count": 2,
+    "type": "star",
+    "color": "#00FF00",
+    "positions": [
+     [
+      7,
+      5
+     ],
+     [
+      9,
+      5
+     ]
+    ]
+   },
+   "mouthType": "wavy",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604291968638659725",
+   "blinkIntervalBits": "4613377303359348101"
+  },
+  {
+   "seed": 41,
+   "bodyType": "egg",
+   "bodyColor": "#F4A460",
+   "eye": {
+    "count": 1,
+    "type": "star",
+    "color": "#3498DB",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "smile",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604211997380841094",
+   "blinkIntervalBits": "4614144415421720378"
+  },
+  {
+   "seed": 42,
+   "bodyType": "pear",
+   "bodyColor": "#54A0FF",
+   "eye": {
+    "count": 1,
+    "type": "star",
+    "color": "#FFFFFF",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "smile",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "flower"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4603713562526341595",
+   "blinkIntervalBits": "4614899355691443541"
+  },
+  {
+   "seed": 43,
+   "bodyType": "octagon",
+   "bodyColor": "#FFDAB9",
+   "eye": {
+    "count": 1,
+    "type": "star",
+    "color": "#4A4A4A",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "surprised",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607626185673978898",
+   "blinkIntervalBits": "4617435591751645052"
+  },
+  {
+   "seed": 44,
+   "bodyType": "tall",
+   "bodyColor": "#4ECDC4",
+   "eye": {
+    "count": 1,
+    "type": "cross",
+    "color": "#F39C12",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604594610578645440",
+   "blinkIntervalBits": "4616318079444662634"
+  },
+  {
+   "seed": 45,
+   "bodyType": "hexagon",
+   "bodyColor": "#FFD3B6",
+   "eye": {
+    "count": 1,
+    "type": "cross",
+    "color": "#FFD700",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [],
+   "pattern": {
+    "color": "#000000",
+    "type": "zigzag"
+   },
+   "bounceSpeedBits": "4607256659741706902",
+   "blinkIntervalBits": "4612051643049237757"
+  },
+  {
+   "seed": 46,
+   "bodyType": "cross",
+   "bodyColor": "#D8BFD8",
+   "eye": {
+    "count": 1,
+    "type": "cross",
+    "color": "#3498DB",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "wavy",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607817492272881071",
+   "blinkIntervalBits": "4611976491606637200"
+  },
+  {
+   "seed": 47,
+   "bodyType": "tall",
+   "bodyColor": "#48DBFB",
+   "eye": {
+    "count": 1,
+    "type": "cross",
+    "color": "#FF69B4",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "dot",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604977223776449786",
+   "blinkIntervalBits": "4617469142151085880"
+  },
+  {
+   "seed": 50,
+   "bodyType": "diamond",
+   "bodyColor": "#FF8B94",
+   "eye": {
+    "count": 3,
+    "type": "wink",
+    "color": "#FF1493",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "vampire",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4603794083484999582",
+   "blinkIntervalBits": "4613995975222667005"
+  },
+  {
+   "seed": 777,
+   "bodyType": "blob",
+   "bodyColor": "#00CED1",
+   "eye": {
+    "count": 2,
+    "type": "circle",
+    "color": "#9B59B6",
+    "positions": [
+     [
+      6,
+      5
+     ],
+     [
+      10,
+      5
+     ]
+    ]
+   },
+   "mouthType": "zigzag",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4603672029146743660",
+   "blinkIntervalBits": "4617962927505020026"
+  },
+  {
+   "seed": 999999,
+   "bodyType": "tall",
+   "bodyColor": "#6C5CE7",
+   "eye": {
+    "count": 1,
+    "type": "star",
+    "color": "#FFD700",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "tongue",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607219532342211694",
+   "blinkIntervalBits": "4612730965492369785"
+  },
+  {
+   "seed": 123456789,
+   "bodyType": "cross",
+   "bodyColor": "#FF7F50",
+   "eye": {
+    "count": 3,
+    "type": "dot",
+    "color": "#3498DB",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "tongue",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607406784667985241",
+   "blinkIntervalBits": "4612298657346357188"
+  },
+  {
+   "seed": 4294967297,
+   "bodyType": "heart",
+   "bodyColor": "#B4E7CE",
+   "eye": {
+    "count": 1,
+    "type": "spiral",
+    "color": "#4A4A4A",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "zigzag",
+   "accessories": [
+    {
+     "isPremium": false,
+     "position": "topCenter",
+     "type": "cloud"
+    }
+   ],
+   "pattern": null,
+   "bounceSpeedBits": "4607438436135910749",
+   "blinkIntervalBits": "4617573640273990250"
+  },
+  {
+   "seed": 9007199254740991,
+   "bodyType": "hexagon",
+   "bodyColor": "#A8E6CF",
+   "eye": {
+    "count": 3,
+    "type": "circle",
+    "color": "#FF1493",
+    "positions": [
+     [
+      8,
+      5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      10,
+      7
+     ]
+    ]
+   },
+   "mouthType": "whistle",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607270085144682865",
+   "blinkIntervalBits": "4616611126487751222"
+  },
+  {
+   "seed": -1,
+   "bodyType": "heart",
+   "bodyColor": "#DDA0DD",
+   "eye": {
+    "count": 1,
+    "type": "wink",
+    "color": "#FF1493",
+    "positions": [
+     [
+      8,
+      6
+     ]
+    ]
+   },
+   "mouthType": "zigzag",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4604259732164424847",
+   "blinkIntervalBits": "4617066537357795944"
+  },
+  {
+   "seed": -42,
+   "bodyType": "pear",
+   "bodyColor": "#DC143C",
+   "eye": {
+    "count": 3,
+    "type": "circle",
+    "color": "#4A4A4A",
+    "positions": [
+     [
+      5,
+      6
+     ],
+     [
+      8,
+      6
+     ],
+     [
+      11,
+      6
+     ]
+    ]
+   },
+   "mouthType": "open",
+   "accessories": [],
+   "pattern": null,
+   "bounceSpeedBits": "4607727415406647366",
+   "blinkIntervalBits": "4618035434520492534"
+  }
+ ]
+}

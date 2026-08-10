@@ -1,0 +1,39 @@
+name: generate
+
+on:
+  schedule:
+    - cron: "17 */6 * * *" # a fresh cast four times a day
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate
+  cancel-in-progress: true
+
+jobs:
+  cast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: parity tests
+        run: node --test
+
+      - name: roll new seeds
+        run: node generate.mjs --out dist/monsters.svg
+
+      - name: publish to output branch
+        run: |
+          cd dist
+          git init -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add monsters.svg
+          git commit -m "cast $(date -u +%FT%TZ)"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" output
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
